@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/login-Signup-App/static/css/main.82a3df3d.chunk.css",
+    "main.js": "/login-Signup-App/static/js/main.9819163f.chunk.js",
+    "main.js.map": "/login-Signup-App/static/js/main.9819163f.chunk.js.map",
+    "runtime-main.js": "/login-Signup-App/static/js/runtime-main.74f82bf6.js",
+    "runtime-main.js.map": "/login-Signup-App/static/js/runtime-main.74f82bf6.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/login-Signup-App/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.38f19314.chunk.js": "/login-Signup-App/static/js/2.38f19314.chunk.js",
+    "static/js/2.38f19314.chunk.js.map": "/login-Signup-App/static/js/2.38f19314.chunk.js.map",
+    "static/js/3.b34cc26d.chunk.js": "/login-Signup-App/static/js/3.b34cc26d.chunk.js",
+    "static/js/3.b34cc26d.chunk.js.map": "/login-Signup-App/static/js/3.b34cc26d.chunk.js.map",
+    "index.html": "/login-Signup-App/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/login-Signup-App/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.82a3df3d.chunk.css.map": "/login-Signup-App/static/css/main.82a3df3d.chunk.css.map",
+    "static/js/2.38f19314.chunk.js.LICENSE.txt": "/login-Signup-App/static/js/2.38f19314.chunk.js.LICENSE.txt",
+    "static/media/home.43f48c12.png": "/login-Signup-App/static/media/home.43f48c12.png",
+    "static/media/login1.2d127d53.jpg": "/login-Signup-App/static/media/login1.2d127d53.jpg",
+    "static/media/logo.6ce24c58.svg": "/login-Signup-App/static/media/logo.6ce24c58.svg",
+    "static/media/signin.5b76780f.jpg": "/login-Signup-App/static/media/signin.5b76780f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.74f82bf6.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.38f19314.chunk.js",
+    "static/css/main.82a3df3d.chunk.css",
+    "static/js/main.9819163f.chunk.js"
+  ]
+}
