@@ -21,24 +21,16 @@ const styles = {
 
 function Signup() {
   return (
-    //   <div style={{ backgroundColor: "#b86af7" }}>
-    //   <Header />
-    //   <img src={bgsignup} class="center" style={{ minHeight: "92.9vh", maxWidth:"44vw", borderTopRightRadius: "35%",borderBottomRightRadius: "35%"}} />
-    // </div>
-
     <div
       style={{
-        // minHeight: "92.8vh",
         maxHeight: "100vh",
         minHeight: "100vh",
         maxWidth: "100vw",
         minWidth: "100vw",
         overflow: "hidden",
       }}
-      // className="bg-primary"
-      // style={{ backgroundColor: "#f0a73b" }}
     >
-      <Header />
+      <Header active={2} />
       <div className="d-flex text-center">
         <div
           className="bg-danger"
@@ -54,7 +46,6 @@ function Signup() {
               minHeight: "90vh",
               maxWidth: "44vw",
               padding: 0,
-              // borderTopRightRadius: "35%",
               borderBottomRightRadius: "35%",
             }}
           />
@@ -73,9 +64,6 @@ function Signup() {
               minWidth: "57.32vw",
               minHeight: "92vh",
               borderTopLeftRadius: "35%",
-
-              // borderTopRightRadius: "35%",
-              // borderBottomRightRadius: "35%",
             }}
           >
             <Grid
@@ -86,13 +74,8 @@ function Signup() {
               style={{
                 minWidth: "40vw",
                 minHeight: "80.5vh",
-
-                // borderTopRightRadius: "35%",
-                // borderBottomRightRadius: "35%",
               }}
-              // spacing={1}
             >
-              <Grid items>{/* <h3 >Login</h3> */}</Grid>
               <Grid items>
                 <Box
                   className=""
@@ -102,32 +85,20 @@ function Signup() {
                     backgroundColor: "primary",
                     borderTopLeftRadius: "25%",
                     borderBottomRightRadius: "25%",
-                    color: "warning",
-                    // borderBottomLeftRadius: "15%",
-                    // borderTopRightRadius: "15%",
                     px: 10,
                     py: 5,
                     boxShadow: "0px 0px 5px black",
                     border: "5px solid 	#018a3c",
 
                     "&:hover": {
-                      // backgroundColor: "primary.dark",
-                      // boxShadow:"0px 0px 5px white",
                       border: "5px solid white",
-                      // border: "5px solid primary",
-                      // opacity: [0.5, 0.6, 0.7, 0.8, 0.9, 1],
+                      boxShadow: "0px 0px 5px white",
                       transition: "0.5s ease-in-out",
                     },
                   }}
                   spacing={1}
                 >
                   <Typography
-                    // sx={{
-                    //   color: "orange",
-                    //   "&:hover": {
-                    //     color: "white",
-                    //   },
-                    // }}
                     style={styles.typography}
                     variant="h5"
                     sx={{ mb: 4 }}
@@ -136,7 +107,7 @@ function Signup() {
                   </Typography>
                   <TextField
                     variant="filled"
-                    color="warning"
+                    color="success"
                     label="Username or Email-Id"
                     fullWidth
                     sx={{ mb: 2 }}
@@ -144,14 +115,14 @@ function Signup() {
                   <TextField
                     variant="filled"
                     label="Password"
-                    color="warning"
+                    color="success"
                     fullWidth
                     sx={{ mb: 2 }}
                   />
                   <TextField
                     variant="filled"
                     label="Password"
-                    color="warning"
+                    color="success"
                     fullWidth
                     sx={{ mb: 2 }}
                   />

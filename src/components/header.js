@@ -2,8 +2,6 @@ import React from "react";
 import logo from "../assets/logo.png";
 import { NavLink } from "react-router-dom";
 
-// import "./header.css"
-
 const header = {
   header: {
     color: "black",
@@ -20,23 +18,55 @@ const header = {
   },
   li: {
     color: "black",
-    fontWeight:"bold",
+    fontWeight: "bold",
+  },
+  li1: {
+    color: "white",
+    fontWeight: "bold",
+    textShadow: "0px 0px 2px black",
   },
 };
-function Header() {
+
+const data = [
+  {
+    name: "Home",
+    path: "/",
+    class: "border border-4 border-success shadow rounded bg-warning",
+  },
+  {
+    name: "Login",
+    path: "/login",
+    class: "border border-4 border-warning shadow rounded bg-primary",
+  },
+  {
+    name: "Signup",
+    path: "/signup",
+    class: "border border-4 border-success shadow rounded bg-danger",
+  },
+];
+
+function Header({ active }) {
   return (
     <div className="header p-2 d-flex " style={header.header}>
       <img src={logo} className=" px-3 mx-5" style={header.logo} />
-      <div style={header.nav} className="offset-7 d-flex justify-content-center align-items-center">
-        <NavLink to="/" className="mx-3 text-decoration-none" style={header.li}>
-          Home
-        </NavLink>
-        <NavLink to="/login" className="mx-3 text-decoration-none" style={header.li}>
-          Login
-        </NavLink>
-        <NavLink to="/signup" className="mx-3 text-decoration-none" style={header.li}>
-          Signup
-        </NavLink>
+      <div
+        style={header.nav}
+        className="offset-7 d-flex justify-content-center align-items-center"
+      >
+        {data.map((data, index) => {
+          return (
+            <div key={index} className={active == index && data.class}>
+              <NavLink
+                to={data.path}
+                className="bg-primary"
+                className="mx-3 text-decoration-none font-weight-bold"
+                style={active == index ? header.li1 : header.li}
+              >
+                {data.name}
+              </NavLink>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

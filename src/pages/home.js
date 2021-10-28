@@ -1,8 +1,7 @@
 import React from "react";
 import Header from "../components/header";
 import bghome from "../assets/home.png";
-import { Box, Grid, TextField, Typography, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Grid, Typography } from "@mui/material";
 
 const styles = {
   typography: {
@@ -13,15 +12,13 @@ const styles = {
   },
   typography1: {
     color: "white",
-    // textDecoration: "none",
     "&:hover": {
       color: "primary",
     },
   },
   h1: {
     fontWeight: "bold",
-    color: "#e60000",
-    // textShadow:"0px 0px 2px black"
+    color: "green",
   },
 };
 
@@ -29,17 +26,14 @@ function Home() {
   return (
     <div
       style={{
-        // minHeight: "92.8vh",
         maxHeight: "100vh",
         minHeight: "100vh",
         maxWidth: "100vw",
         minWidth: "100vw",
         overflow: "hidden",
       }}
-      // className="bg-primary"
-      // style={{ backgroundColor: "#f0a73b" }}
     >
-      <Header />
+      <Header active={0} />
       <div className="d-flex text-center">
         <div
           className="bg-warning"
@@ -55,7 +49,6 @@ function Home() {
               minHeight: "90vh",
               maxWidth: "44vw",
               padding: 0,
-              // borderTopRightRadius: "35%",
               borderBottomRightRadius: "35%",
             }}
           />
@@ -74,9 +67,6 @@ function Home() {
               minWidth: "57.32vw",
               minHeight: "92vh",
               borderTopLeftRadius: "35%",
-
-              // borderTopRightRadius: "35%",
-              // borderBottomRightRadius: "35%",
             }}
           >
             <Grid
@@ -87,11 +77,7 @@ function Home() {
               style={{
                 minWidth: "40vw",
                 minHeight: "80.5vh",
-
-                // borderTopRightRadius: "35%",
-                // borderBottomRightRadius: "35%",
               }}
-              // spacing={1}
             >
               <Grid items>
                 <div className="d-flex justify-content-center align-items-center">
@@ -118,37 +104,19 @@ function Home() {
                     backgroundColor: "primary",
                     borderTopLeftRadius: "25%",
                     borderBottomRightRadius: "25%",
-                    color: "#e60000",
+                    color: "green",
                     fontWeight: "bold",
-                    // borderBottomLeftRadius: "15%",
-                    // borderTopRightRadius: "15%",
-                      border: "5px solid red",
-                      padding: 10,
+                    border: "5px solid green",
+                    padding: 10,
                     boxShadow: "0px 0px 5px black",
 
                     "&:hover": {
-                      // // backgroundColor: "primary.dark",
-                    border: "5px solid white",
-                    // boxShadow: "0px 0px 5px black",
-
-                      // // border: "5px solid primary",
-                      // // opacity: [0.5, 0.6, 0.7, 0.8, 0.9, 1],
+                      border: "5px solid white",
                       transition: "0.5s ease-in-out",
                     },
                   }}
                   spacing={1}
                 >
-                  {/* <Typography
-                    // sx={{
-                    //   color: "orange",
-                    //   "&:hover": {
-                    //     color: "white",
-                    //   },
-                    // }}
-                    style={styles.typography}
-                    variant="body2"
-                    // sx={{ mb: 1 }}
-                  > */}
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
@@ -156,26 +124,6 @@ function Home() {
                   specimen book. It has survived not only five centuries, but
                   also the leap into electronic typesetting, remaining
                   essentially unchanged.
-                  {/* </Typography> */}
-                  {/* <TextField
-                    variant="filled"
-                    color="warning"
-                    label="Username or Email-Id"
-                    fullWidth
-                    sx={{ mb: 2 }}
-                  />
-                  <TextField
-                    variant="filled"
-                    label="Password"
-                    color="warning"
-                    fullWidth
-                    sx={{ mb: 2 }}
-                  />
-                  <Button variant="contained" color="warning" sx={{ mb: 2 }}>
-                    Login
-                  </Button>
-                  <Typography variant="body1"><Link to="/signup" style={styles.typography1}>Don't Have an account ?</Link></Typography>
-                   */}
                 </Box>
               </Grid>
             </Grid>
