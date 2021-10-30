@@ -87,14 +87,13 @@ function Home() {
                   </Typography>
                 </div>
                 <p style={styles.h1}>
-                  krishna villa, Old no: 1005 New no: 98, 21st Main Rd, Anna
-                  Nagar, Chennai, Tamil Nadu 600040.
+                  No. 1885/5, Vasantham Colony, 4th street, NewAnnaNagar 18th
+                  Main Road, Chennai-40.
                 </p>
               </Grid>
               <Grid items>
                 <h2 style={styles.h1} className="py-3">
-                  {" "}
-                  About{" "}
+                  About
                 </h2>
                 <Box
                   className=""

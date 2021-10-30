@@ -1,8 +1,18 @@
-import React from "react";
+import { React, useState } from "react";
 import Header from "../components/header";
 import bgsignup from "../assets/signin.jpg";
 import { Box, Grid, TextField, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
+
+import IconButton from "@mui/material/IconButton";
+import FilledInput from "@mui/material/FilledInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+
+import axios from "axios";
 
 const styles = {
   typography: {
@@ -20,6 +30,58 @@ const styles = {
 };
 
 function Signup() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const registered = {
+      username: e.target.user.value,
+      email: e.target.mail.value,
+      password: e.target.pass.value,
+    };
+
+    if (registered.username && registered.email && registered.password) {
+      console.log("resssssssss");
+      axios.post("http://localhost:4000/app/signup", registered).then((res) => {
+        console.log(res.data);
+        console.log(res.data.message.msg);
+        console.log("Success back to back to back bro!");
+        if (res.data.message.result) window.location = "/";
+        alert(res.data.message.msg);
+        setUser("");
+        setMail("");
+        setPass("");
+      });
+    } else {
+      alert("Some fields are empty!");
+    }
+  };
+
+  const [user, setUser] = useState();
+  const [mail, setMail] = useState();
+  const [pass, setPass] = useState();
+  const [values, setValues] = useState({
+    amount: "",
+    password: "",
+    weight: "",
+    weightRange: "",
+    showPassword: false,
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div
       style={{
@@ -66,77 +128,131 @@ function Signup() {
               borderTopLeftRadius: "35%",
             }}
           >
-            <Grid
-              container
-              direction="column"
-              alignItems="center"
-              justifyContent="center"
-              style={{
-                minWidth: "40vw",
-                minHeight: "80.5vh",
-              }}
-            >
-              <Grid items>
-                <Box
-                  className=""
-                  sx={{
-                    width: 500,
-                    height: 450,
-                    backgroundColor: "primary",
-                    borderTopLeftRadius: "25%",
-                    borderBottomRightRadius: "25%",
-                    px: 10,
-                    py: 5,
-                    boxShadow: "0px 0px 5px black",
-                    border: "5px solid 	#018a3c",
+            <form onSubmit={handleSubmit}>
+              <Grid
+                container
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                style={{
+                  minWidth: "40vw",
+                  minHeight: "80.5vh",
+                }}
+              >
+                <Grid items>
+                  <Box
+                    className=""
+                    sx={{
+                      width: 500,
+                      height: 450,
+                      backgroundColor: "primary",
+                      borderTopLeftRadius: "25%",
+                      borderBottomRightRadius: "25%",
+                      px: 10,
+                      py: 5,
+                      boxShadow: "0px 0px 5px black",
+                      border: "5px solid 	#018a3c",
 
-                    "&:hover": {
-                      border: "5px solid white",
-                      boxShadow: "0px 0px 5px white",
-                      transition: "0.5s ease-in-out",
-                    },
-                  }}
-                  spacing={1}
-                >
-                  <Typography
-                    style={styles.typography}
-                    variant="h5"
-                    sx={{ mb: 4 }}
+                      "&:hover": {
+                        border: "5px solid white",
+                        boxShadow: "0px 0px 5px white",
+                        transition: "0.5s ease-in-out",
+                      },
+                    }}
+                    spacing={1}
                   >
-                    Sign-Up
-                  </Typography>
-                  <TextField
-                    variant="filled"
-                    color="success"
-                    label="Username or Email-Id"
-                    fullWidth
-                    sx={{ mb: 2 }}
-                  />
+                    <Typography
+                      style={styles.typography}
+                      variant="h5"
+                      sx={{ mb: 4 }}
+                    >
+                      Sign-Up
+                    </Typography>
+                    <TextField
+                      variant="filled"
+                      onChange={(e) => setUser(e.target.value)}
+                      color="success"
+                      label="Username"
+                      value={user}
+                      name="user"
+                      fullWidth
+                      sx={{ mb: 2 }}
+                    />
+                    <TextField
+                      variant="filled"
+                      label="Email"
+                      value={mail}
+                      name="mail"
+                      color="success"
+                      onChange={(e) => setMail(e.target.value)}
+                      fullWidth
+                      sx={{ mb: 2 }}
+                    />
+
+                    <FormControl
+                      sx={{ mb: 2 }}
+                      fullWidth
+                      variant="filled"
+                      color="success"
+                    >
+                      <InputLabel htmlFor="filled-adornment-password">
+                        Password
+                      </InputLabel>
+                      <FilledInput
+                        id="filled-adornment-password"
+                        name="pass"
+                        type={values.showPassword ? "text" : "password"}
+                        value={values.pass}
+                        value={pass}
+                        // onChange={}
+                        onChange={(e) => {
+                          setPass(e.target.value);
+                          handleChange("password");
+                        }}
+                        endAdornment={
+                          <InputAdornment position="end">
+                            <IconButton
+                              aria-label="toggle password visibility"
+                              onClick={handleClickShowPassword}
+                              onMouseDown={handleMouseDownPassword}
+                              edge="end"
+                            >
+                              {values.showPassword ? (
+                                <VisibilityOff />
+                              ) : (
+                                <Visibility />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        }
+                      />
+                    </FormControl>
+                    {/* 
                   <TextField
                     variant="filled"
                     label="Password"
+                    onChange={(e) => setPass(e.target.value)}
                     color="success"
                     fullWidth
                     sx={{ mb: 2 }}
-                  />
-                  <TextField
-                    variant="filled"
-                    label="Password"
-                    color="success"
-                    fullWidth
-                    sx={{ mb: 2 }}
-                  />
-                  <Button variant="contained" color="success" sx={{ mb: 2 }}>
-                    Sign-Up
-                  </Button>
-                  <Typography variant="body1">
-                    <Link to="/login" style={styles.typography1}>
-                      Already Have an account ?
-                    </Link>
-                  </Typography>
-                </Box>
+                  /> */}
+                    <Button
+                      variant="contained"
+                      color="success"
+                      sx={{ mb: 2 }}
+                      type="submit"
+                    >
+                      Sign-Up
+                    </Button>
+                    <Typography variant="body1">
+                      <Link to="/login" style={styles.typography1}>
+                        Already Have an account ?
+                      </Link>
+                    </Typography>
+                  </Box>
+                </Grid>
               </Grid>
-            </Grid>
+            </form>
           </div>
         </div>
       </div>
